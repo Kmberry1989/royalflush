@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Royal Flush Casino v4</title>
+<style>
+body{background:#000;color:#fff;font-family:system-ui;margin:0;padding:20px}
+h1{color:gold;text-align:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:30px}
+.card{background:#111;border:2px solid #333;border-radius:12px;padding:16px;text-align:center}
+.card img{max-width:100%;height:auto;image-rendering:pixelated}
+.mascot-demo{width:128px;height:128px;margin:0 auto;background-size:400% 200%;animation:mascot 2s steps(8) infinite}
+@keyframes mascot{from{background-position:0 0}to{background-position:400% 200%}}
+.lobby-demo{width:256px;height:64px;margin:20px auto;background:url('assets/lobby/lobby_walk_16.png') no-repeat;background-size:400% 400%;animation:walk 1.2s steps(16) infinite}
+@keyframes walk{from{background-position:0 0}to{background-position:400% 400%}}
+button{background:gold;color:#000;border:none;padding:10px 20px;border-radius:8px;font-weight:900;cursor:pointer;margin:5px}
+</style>
+</head>
+<body>
+<h1>ROYAL FLUSH CASINO v4 — Assets Bundle</h1>
+<p style="text-align:center;color:#aaa">Transparent PNG strips • Voice-synced mascots • 16-frame lobby walk</p>
+
+<div class="grid">
+  <div class="card"><h3>Classic Symbols</h3><img src="assets/symbols/classic.png"><p>Strip: 9 frames</p><img src="assets/symbols/classic_strip.png" style="width:100%;margin-top:8px"></div>
+  <div class="card"><h3>Luxury Symbols</h3><img src="assets/symbols/luxury.png"><p>Strip: 9 frames</p><img src="assets/symbols/luxury_strip.png" style="width:100%;margin-top:8px"></div>
+  <div class="card"><h3>Neon Symbols</h3><img src="assets/symbols/neon.png"><p>Fixed: no duplicate 7</p><img src="assets/symbols/neon_strip.png" style="width:100%;margin-top:8px"></div>
+</div>
+
+<h2 style="text-align:center;margin-top:40px;color:gold">Mascots with Voice</h2>
+<div class="grid">
+  <div class="card"><div class="mascot-demo" style="background-image:url('assets/mascots/mascot_dealer_spritesheet.png')"></div><button onclick="playVoice('dealer')">Dealer: "Winner!"</button><audio id="dealer" src="assets/audio/dealer_win.mp3"></audio></div>
+  <div class="card"><div class="mascot-demo" style="background-image:url('assets/mascots/mascot_showgirl_spritesheet.png')"></div><button onclick="playVoice('showgirl')">Showgirl: "Jackpot baby!"</button><audio id="showgirl" src="assets/audio/showgirl_win.mp3"></audio></div>
+  <div class="card"><div class="mascot-demo" style="background-image:url('assets/mascots/mascot_lion_spritesheet.png')"></div><button onclick="playVoice('lion')">Lion: "Roar!"</button><audio id="lion" src="assets/audio/lion_win.mp3"></audio></div>
+</div>
+
+<h2 style="text-align:center;margin-top:40px;color:gold">Lobby Walk Cycle</h2>
+<div class="lobby-demo"></div>
+<p style="text-align:center"><a href="assets/lobby/lobby_walk_16.png" style="color:gold">Download 16-frame PNG</a></p>
+
+<script>
+function playVoice(id){
+  const audio = document.getElementById(id);
+  audio.play();
+  const phrases = {dealer:"Winner!",showgirl:"Jackpot baby!",lion:"Big win!"};
+  if('speechSynthesis' in window){
+    const u = new SpeechSynthesisUtterance(phrases[id]);
+    u.rate=1.1; u.pitch=id==='lion'?0.7:1.2;
+    speechSynthesis.speak(u);
+  }
+}
+</script>
+</body>
+</html>
