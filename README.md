@@ -21,7 +21,6 @@ folder from GitHub Pages.
 - `assets/audio/dealer_win.mp3`, `showgirl_win.mp3`, `lion_win.mp3`: mascot win
   audio. Browsers may block playback until the user interacts with the page.
 - `assets/bonus_wheel.png`: bonus wheel image.
-- `assets/bingo_card.png`: bingo card background.
 - `assets/lobby/lobby_walk_16.png`: walking lobby character animation sheet.
   The app treats it as 12 equal frames arranged in a 6x2 grid and triggers it
   during loading/spin moments.

@@ -526,32 +526,31 @@
     .bingo.active { display: block; }
 
     .bingo-card {
-      position: relative;
       aspect-ratio: 1;
       border-radius: 14px;
-      background-image: url("assets/bingo_card.png");
-      background-size: cover;
-      background-position: center;
+      padding: 10px;
+      background:
+        linear-gradient(180deg, rgba(164, 129, 255, .12), rgba(0,0,0,.18)),
+        #070811;
       border: 1px solid rgba(164, 129, 255, .45);
-      overflow: hidden;
+      box-shadow: inset 0 0 28px rgba(0,0,0,.55);
     }
 
     .bingo-grid {
-      position: absolute;
-      inset: 16%;
+      height: 100%;
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 4px;
+      gap: 6px;
     }
 
     .bingo-cell {
       display: grid;
       place-items: center;
-      border-radius: 50%;
-      background: rgba(0,0,0,.65);
+      border-radius: 8px;
+      background: rgba(0,0,0,.48);
       border: 1px solid rgba(255,255,255,.18);
       color: white;
-      font-size: clamp(9px, 1.8vw, 13px);
+      font-size: clamp(12px, 2vw, 16px);
       font-weight: 900;
       min-width: 0;
     }
